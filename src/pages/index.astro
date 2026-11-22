@@ -1,0 +1,35 @@
+---
+import MetaPage from "@/components/MetaPage.astro"
+import Layout from "@/layouts/Layout.astro"
+---
+
+<Layout>
+  <MetaPage slot="head" />
+  <home-intro>
+    <prose-content>
+      <p>
+        Hi, I'm hollow. This is my corner of the internet, where I write about
+        what I'm learning and building. You can find my work on
+        <a
+          href="https://github.com/h1lw"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >.
+      </p>
+      <p>Start with the <a href="/blog">blog</a>.</p>
+    </prose-content>
+  </home-intro>
+</Layout>
+
+<style>
+  home-intro {
+    display: block;
+    font-size: var(--step-0);
+    color: var(--muted-foreground);
+
+    @media (width >= 64rem) {
+      margin-block-start: -0.2em;
+    }
+  }
+</style>
