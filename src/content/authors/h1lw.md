@@ -1,6 +1,6 @@
 ---
 name: "hollow"
-avatar: "https://github.com/h1lw.png"
+avatar: "/static/hlw9-avatar.png"
 socials:
-  github: "https://github.com/h1lw"
+  github: "https://github.com/hlw9"
 ---

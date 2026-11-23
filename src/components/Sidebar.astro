@@ -1,5 +1,4 @@
 ---
-import Logo from "@/assets/logo.svg"
 import ThemeToggle from "@/components/ThemeToggle.astro"
 import { NAVIGATION, SITE } from "@/consts"
 import { normalizePath } from "@/lib/utils"
@@ -16,7 +15,7 @@ const section = NAVIGATION.find(
 <aside data-bar>
   <sidebar-inner>
     <a href="/" aria-label={SITE.title}>
-      <Logo />
+      <img src="/static/hlw9-avatar.png" width="18" height="18" alt="" />
       <span>{SITE.title}</span>
     </a>
     <nav>
@@ -100,7 +99,8 @@ const section = NAVIGATION.find(
       color: var(--foreground);
       text-decoration-line: none;
 
-      svg {
+      img {
+        border-radius: 50%;
         inline-size: 1.125rem;
         block-size: 1.125rem;
         flex-shrink: 0;

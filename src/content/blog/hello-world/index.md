@@ -1,16 +1,15 @@
 ---
-title: "Hello, world"
+title: "hello world"
 description: "An introduction, if you will."
-date: 2026-07-20
+date: 2026-11-23
 authors:
   - h1lw
+
 tags:
   - blog
 ---
 
-Hi there, my name is Hollow. I'm 22 years old, and I'm an aspiring
-security researcher currently learning reverse engineering and binary
-exploitation.
+Hi there, my name is Hollow. I am 23 years old, and i'm an aspiring security researcher currently learning reverse engineering and binary exploitation.
 
 ## Hacking mindset
 
@@ -25,7 +24,6 @@ stone to actually using your exploits.
 Think of it like this: you gather your primitives and 0days, and now you
 have a real-life `sudo`. Combine an iPhone 0day with a primitive that
 leaks a phone number from some random app your target is registered on.
-Profit.
 
 ## More on me
 

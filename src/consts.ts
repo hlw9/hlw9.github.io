@@ -17,6 +17,6 @@ export const NAVIGATION = [
 ]
 
 export const SOCIALS: { href: string; label: string; icon: SvgComponent }[] = [
-  { href: "https://github.com/h1lw", label: "GitHub", icon: GitHub },
+  { href: "https://github.com/hlw9", label: "GitHub", icon: GitHub },
   { href: "/rss.xml", label: "RSS", icon: RSS },
 ]
