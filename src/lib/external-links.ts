@@ -1,4 +1,5 @@
 import { defineHastPlugin } from "satteri"
+import { ensureTrailingSlash } from "./utils"
 
 export const externalLinks = defineHastPlugin({
   name: "external-links",
@@ -9,6 +10,8 @@ export const externalLinks = defineHastPlugin({
       if (typeof href === "string" && /^https?:\/\//.test(href)) {
         ctx.setProperty(node, "target", "_blank")
         ctx.setProperty(node, "rel", "nofollow noreferrer noopener")
+      } else if (typeof href === "string") {
+        ctx.setProperty(node, "href", ensureTrailingSlash(href))
       }
     },
   },

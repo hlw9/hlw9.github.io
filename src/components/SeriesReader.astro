@@ -14,7 +14,7 @@
 </script>
 
 <script>
-  import { hashId, normalizePath } from "@/lib/utils"
+  import { ensureTrailingSlash, hashId, normalizePath } from "@/lib/utils"
 
   const articles = [
     ...document.querySelectorAll<HTMLElement>("article[data-url]"),
@@ -58,7 +58,7 @@
       parentLink.setAttribute("aria-current", "page")
     } else {
       crumb.hidden = false
-      crumbLink.href = article.dataset.url ?? ""
+      crumbLink.href = ensureTrailingSlash(article.dataset.url ?? "")
       crumbLink.textContent =
         article.querySelector("header h1")?.textContent ?? ""
       crumbLink.setAttribute("aria-current", "page")
@@ -69,7 +69,7 @@
   const sync = (article: HTMLElement, hash = "") => {
     const { url, title } = article.dataset
     if (!url) return
-    history.replaceState(history.state, "", url + hash)
+    history.replaceState(history.state, "", ensureTrailingSlash(url) + hash)
     if (title) document.title = title
     syncCrumb(article)
   }

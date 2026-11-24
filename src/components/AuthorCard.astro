@@ -5,7 +5,7 @@ import Globe from "@/assets/icons/globe.svg"
 import Link from "@/assets/icons/link.svg"
 import Twitter from "@/assets/icons/twitter.svg"
 import SocialIcons from "@/components/SocialIcons.astro"
-import { normalizePath } from "@/lib/utils"
+import { ensureTrailingSlash, normalizePath } from "@/lib/utils"
 import type { SvgComponent } from "astro/types"
 import type { CollectionEntry } from "astro:content"
 
@@ -36,13 +36,13 @@ const isCurrent = normalizePath(Astro.url.pathname) === href
   {isCurrent ? (
       <img src={avatar} alt={name} width="64" height="64" />
     ) : (
-      <a href={href} tabindex="-1" aria-hidden="true">
+      <a href={ensureTrailingSlash(href)} tabindex="-1" aria-hidden="true">
         <img src={avatar} alt="" width="64" height="64" />
       </a>
     )}
   <author-info>
     <author-name>
-      {isCurrent ? name : <a href={href}>{name}</a>}
+      {isCurrent ? name : <a href={ensureTrailingSlash(href)}>{name}</a>}
       {pronouns && <author-pronouns>{pronouns}</author-pronouns>}
     </author-name>
     {bio && <p>{bio}</p>}

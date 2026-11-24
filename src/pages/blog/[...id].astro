@@ -6,7 +6,7 @@ import SeriesReader from "@/components/SeriesReader.astro"
 import TableOfContents from "@/components/TableOfContents.astro"
 import Layout from "@/layouts/Layout.astro"
 import { getPosts, getSubposts, pageTitle } from "@/lib/content"
-import { formatDate, isSubpost, subpostSlug } from "@/lib/utils"
+import { ensureTrailingSlash, formatDate, isSubpost, subpostSlug } from "@/lib/utils"
 import { Image } from "astro:assets"
 import { getEntries, render, type CollectionEntry } from "astro:content"
 
@@ -95,7 +95,7 @@ if (isSubpost(post.id)) {
                 </author-avatars>
                 <author-names>
                   {authors.map((author, j) => (
-                    <>{j > 0 && ", "}<a href={`/authors/${author.id}`}>{author.data.name}</a></>
+                    <>{j > 0 && ", "}<a href={ensureTrailingSlash(`/authors/${author.id}`)}>{author.data.name}</a></>
                   ))}
                 </author-names>
               </post-authors>
@@ -106,7 +106,7 @@ if (isSubpost(post.id)) {
             {entry.data.tags && (
               <post-tags>
                 {entry.data.tags.map((tag) => (
-                  <a href={`/tags/${tag}`}>#{tag}</a>
+                  <a href={ensureTrailingSlash(`/tags/${tag}`)}>#{tag}</a>
                 ))}
               </post-tags>
             )}

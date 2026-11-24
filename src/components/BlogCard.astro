@@ -1,5 +1,5 @@
 ---
-import { formatDate } from "@/lib/utils"
+import { ensureTrailingSlash, formatDate } from "@/lib/utils"
 import { Image } from "astro:assets"
 import { getEntries, type CollectionEntry } from "astro:content"
 
@@ -11,12 +11,12 @@ const authors = await getEntries(post.data.authors)
 
 <li>
   {post.data.image && (
-      <a href={`/blog/${post.id}`} tabindex="-1" aria-hidden="true">
+      <a href={ensureTrailingSlash(`/blog/${post.id}`)} tabindex="-1" aria-hidden="true">
         <Image src={post.data.image} alt="" width={640} height={336} />
       </a>
     )}
   <entry-info>
-    <a href={`/blog/${post.id}`}>{post.data.title}</a>
+    <a href={ensureTrailingSlash(`/blog/${post.id}`)}>{post.data.title}</a>
     <entry-meta>
       {authors.length > 0 && (
           <entry-authors>

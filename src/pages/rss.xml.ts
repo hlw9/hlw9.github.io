@@ -1,5 +1,6 @@
 import { SITE } from "@/consts"
 import { getPosts } from "@/lib/content"
+import { ensureTrailingSlash } from "@/lib/utils"
 import rss from "@astrojs/rss"
 import type { APIContext } from "astro"
 
@@ -13,7 +14,7 @@ export async function GET(context: APIContext) {
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.date,
-      link: `/blog/${post.id}`,
+      link: ensureTrailingSlash(`/blog/${post.id}`),
     })),
   })
 }

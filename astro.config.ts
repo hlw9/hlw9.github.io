@@ -13,6 +13,7 @@ import { headingAnchors } from "./src/lib/heading-anchors"
 
 export default defineConfig({
   site: "https://hlw9.github.io",
+  trailingSlash: "always",
   compressHTML: true,
   prefetch: { prefetchAll: true },
   integrations: [

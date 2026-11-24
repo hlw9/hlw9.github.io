@@ -1,7 +1,7 @@
 ---
 import ThemeToggle from "@/components/ThemeToggle.astro"
 import { NAVIGATION, SITE } from "@/consts"
-import { normalizePath } from "@/lib/utils"
+import { ensureTrailingSlash, normalizePath } from "@/lib/utils"
 
 type Props = { crumbs?: { label: string; href: string }[] }
 
@@ -23,7 +23,7 @@ const section = NAVIGATION.find(
         {NAVIGATION.map((item) => (
             <li>
               <a
-                href={item.href}
+                href={ensureTrailingSlash(item.href)}
                 aria-current={pathname === item.href ? "page" : undefined}
               >
                 {item.label}
@@ -33,7 +33,7 @@ const section = NAVIGATION.find(
                   {crumbs.map((crumb, i) => (
                     <li data-depth={i ? 1 : undefined}>
                       <a
-                        href={crumb.href}
+                        href={ensureTrailingSlash(crumb.href)}
                         aria-current={
                           i === crumbs.length - 1 ? "page" : undefined
                         }
@@ -50,7 +50,7 @@ const section = NAVIGATION.find(
             crumbs.map((crumb, i) => (
               <li data-depth={i ? 1 : undefined}>
                 <a
-                  href={crumb.href}
+                  href={ensureTrailingSlash(crumb.href)}
                   aria-current={i === crumbs.length - 1 ? "page" : undefined}
                 >
                   {crumb.label}
